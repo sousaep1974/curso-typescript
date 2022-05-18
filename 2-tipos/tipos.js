@@ -16,10 +16,11 @@ temHobby = true;
 console.log(`${temHobby} é do tipo:`, typeof temHobby);
 // Tipos explícitos
 let minhaIdade;
+// minhaIdade = "27" //Seria permitido se tivesse explícito
 minhaIdade = 27;
 console.log(`${minhaIdade} é do tipo:`, typeof minhaIdade);
 // array
-let hobbies = ["cozinhar", "Praticar esporte"];
+let hobbies = ["cozinhar", "Praticar esporte", 100, false];
 hobbies = [100];
 console.log(hobbies);
 console.log(typeof hobbies);
@@ -29,4 +30,4 @@ console.log(endereco);
 endereco = ["Av. Brasil", 30, "Bloco A"];
 console.log(typeof endereco[0]);
 console.log(typeof endereco[1]);
-console.log(typeofendereco[2]);
+console.log(typeof endereco[2]);
