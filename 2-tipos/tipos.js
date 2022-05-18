@@ -15,8 +15,8 @@ let temHobby = false;
 temHobby = true;
 console.log(`${temHobby} é do tipo:`, typeof temHobby);
 // Tipos explícitos
-let minhaIdade;
-// minhaIdade = "27" //Seria permitido se tivesse explícito
+let minhaIdade = 20;
+// minhaIdade = "27"; //Seria permitido se tivesse explícito
 minhaIdade = 27;
 console.log(`${minhaIdade} é do tipo:`, typeof minhaIdade);
 // array
