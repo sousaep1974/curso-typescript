@@ -84,7 +84,7 @@ console.log(new DiferencaEntreDatas(d1, d2).executar());
 // Atributo: fila (Array)
 // Métodos: Entrar, próximo, imprimir
 
-class Fila<T> {
+class Fila<T extends number | string> {
   private fila: Array<T>;
   constructor(...args: T[]) {
     this.fila = args;
@@ -94,7 +94,7 @@ class Fila<T> {
   }
 
   proximo(): T | null {
-    if (this.fila.length >= 0 && this.fila[0] ) {
+    if (this.fila.length >= 0 && this.fila[0]) {
       const primeiro = this.fila[0];
       this.fila.splice(0, 1);
       return primeiro;
@@ -109,7 +109,7 @@ class Fila<T> {
 }
 const fila = new Fila<string>("Gui", "Pedro", "Ana", "Lu");
 fila.imprimir();
-fila.entrar('Rafael')
+fila.entrar("Rafael");
 fila.imprimir();
 console.log(fila.proximo());
 console.log(fila.proximo());
@@ -119,4 +119,46 @@ console.log(fila.proximo());
 console.log(fila.proximo());
 fila.imprimir();
 
+const novaFila = new Fila<number>(1, 2, 3, 4);
+novaFila.imprimir();
 
+// DESAFIO MAPA
+// Array de Objetos (Chave/Valor) -> itens
+// Métodos: obter (chave), colocar ({C, V})
+// Limpar(), imprimir()
+
+type Par<C, V> = { chave: C; valor: V };
+class Mapa<C, V> {
+  itens: Array<Par<C, V>> = new Array <Par<C, V>>()
+
+  obter(chave: C) : Par<C,V> | null{
+    const resultado = this. itens
+    .filter(i=> i.chave === chave)
+    return resultado ? resultado[0] : null
+  }
+  colocar (par: Par<C,V>){
+    const encontrado = this.obter(par.chave)
+    if (encontrado) {
+      encontrado.valor = par.valor
+    }else {
+      this.itens.push(par)
+    }
+  }
+  limpar() {
+    this.itens = new Array <Par<C, V>>()
+  }
+
+  imprimir () {
+    console.log(this.itens);
+    
+  }
+}
+const mapa = new Mapa<number, string>();
+mapa.colocar({ chave: 1, valor: "Pedro" }),
+  mapa.colocar({ chave: 2, valor: "Rebeca" }),
+  mapa.colocar({ chave: 3, valor: "Maria" }),
+  mapa.colocar({ chave: 1, valor: "Gustavo" }),
+  console.log(mapa.obter(2));
+mapa.imprimir();
+mapa.limpar();
+mapa.imprimir();
